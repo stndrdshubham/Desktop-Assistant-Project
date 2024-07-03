@@ -1,13 +1,26 @@
 # Desktop-Assistant-Project
 
-conda create -n assistant python=3.7
+## How to run:
 
+1. Create a new virtual environment
+
+```bash
+conda create -n assistant1 python=3.8
+
+```
+
+2. Checkout the created virtual environment
+```bash
 conda env list
+```
+3. Actiavte the virtual environment
 
-conda activate assistant
+```bash
+conda activate assistant1
+```
 
-pip list
+4. Install all the packages present in the rwquirement file
 
-git add .
-
-git commit -m "updated"
+```bash
+pip install -r requirements.txt
+```
