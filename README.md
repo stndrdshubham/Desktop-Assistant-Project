@@ -8,4 +8,6 @@ conda activate assistant
 
 pip list
 
+git add .
 
+git commit -m "updated"
