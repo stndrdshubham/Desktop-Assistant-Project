@@ -38,5 +38,4 @@ git push origin main
 streamlit run app.py
 ```
 
-google Gemini API key : AIzaSyAJMF1qc_Zf5ek9UffIWacl4p3n13lOVfg
 
