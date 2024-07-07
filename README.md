@@ -32,3 +32,11 @@ git add .
 git commit -m "message"
 git push origin main
 ```
+
+5. Running streamlit
+```bash
+streamlit run app.py
+```
+
+google Gemini API key : AIzaSyAJMF1qc_Zf5ek9UffIWacl4p3n13lOVfg
+

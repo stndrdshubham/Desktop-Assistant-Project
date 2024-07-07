@@ -52,7 +52,7 @@ def takeCommand():
 
         try:
             print("Recognizing ...")
-            query=r.recognize_google(audio, language="en-in")
+            query=r.recognize_google(audio, language="en-in")   #hi for hindi recognition
             print(f"user said: {query}\n")
 
         except Exception as e:
@@ -82,27 +82,35 @@ if __name__=="__main__":
     
     wish_me()
     while True:
-    query = takeCommand().lower()
+        query = takeCommand().lower()
 
-    if 'wikipedia' in query:
-        speak("Searching wikipedia")
-        query=query.replace('wikipedia', "")
-        results=wikipedia.summary(query,sentences=2)
-        speak("According to wikipedia")
-        print(results)
-        speak(results)
+        if 'wikipedia' in query:
+            speak("Searching wikipedia")
+            query=query.replace('wikipedia', "")
+            results=wikipedia.summary(query,sentences=2)
+            speak("According to wikipedia")
+            print(results)
+            speak(results)
 
-    elif "github" in query:
-        speak("Opeing Github")
-        webbrowser.open("github.com")
+        elif "github" in query:
+            speak("Opeing Github")
+            webbrowser.open("github.com")
 
-    elif "google" in query:
-        speak("Opening Google")
-        webbrowser.open("google.com")
+        elif "google" in query:
+            speak("Opening Google")
+            webbrowser.open("google.com")
 
-    else:
-        speak("Opening Youtube")
-        webbrowser.open("youtube.com")
+        elif "youtube" in query:
+            speak("Opening Youtube")
+            webbrowser.open("youtube.com")
+
+        elif 'time' in query:
+            strTime=datetime.datetime.now().strftime("%H:%M:%S")
+            speak(f"sir the time is {strTime}")
+
+        elif 'goodbye' in query:
+            speak("ok shubham/ I am always here for you. Bye")
+            exit()
 
 
 
