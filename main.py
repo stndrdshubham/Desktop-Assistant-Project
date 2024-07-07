@@ -36,7 +36,10 @@ def speak(text):
 #speak("Hello i am a programmer, how are you?")
   
 
-  #Speech Recognition function
+#Speech Recognition function  https://makeblock-micropython-api.readthedocs.io/en/latest/haloboard/haloboard/speech_recognition/speech_recognition.html
+#importing microphine as source
+#r.pause_threshold will wait for 1ms b/w speech to avoid the noise in b/w speech and embedded through listen command.
+# for recognistion we are using try and except block just to handle the exceptions, to recognize we use google API (there are bunch of other options available) 
 def takeCommand():
     """this function will recognize voice & return text
     """
@@ -57,5 +60,51 @@ def takeCommand():
             return "None"
            
 
-text=takeCommand()
-speak(text)
+# text=takeCommand()
+# speak(text)
+
+#this function for wish me by using time
+def wish_me():
+    hour=(datetime.datetime.now().hour)
+    if hour>=0 and hour<12:
+        speak("Good morning shubham. How are you doing")
+
+    elif hour>=12 and hour<18:
+        speak("Good afternoon shubham. How are you doing")
+
+    else:
+        speak("Good evening shubham. How are you doing")
+
+    speak("I am JARVIS. Tell me how can i help you")
+
+
+if __name__=="__main__":
+    
+    wish_me()
+    while True:
+    query = takeCommand().lower()
+
+    if 'wikipedia' in query:
+        speak("Searching wikipedia")
+        query=query.replace('wikipedia', "")
+        results=wikipedia.summary(query,sentences=2)
+        speak("According to wikipedia")
+        print(results)
+        speak(results)
+
+    elif "github" in query:
+        speak("Opeing Github")
+        webbrowser.open("github.com")
+
+    elif "google" in query:
+        speak("Opening Google")
+        webbrowser.open("google.com")
+
+    else:
+        speak("Opening Youtube")
+        webbrowser.open("youtube.com")
+
+
+
+
+
